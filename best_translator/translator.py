@@ -1,3 +1,5 @@
+#!/bin/python3
+
 """
 The core of the 10xTranslator
 """
@@ -24,7 +26,7 @@ def main():
     the main funcion
     gets the program arguments and initiates translation if successful
     """
-    parser = argparse.ArgumentParser(description='The best translator currently aviable.')
+    parser = argparse.ArgumentParser(description='The best translator currently available.')
     parser.add_argument('-q', '--quiet', action='store_true', help='Print only final translation or critical errors.')
     parser.add_argument('-v', '--verbosity', help='set logger verbosity')
 

@@ -1,2 +1,2 @@
 # 10xTranslator
-The best translator currently aviable
+The best translator currently available
