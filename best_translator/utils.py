@@ -26,7 +26,7 @@ def print_loading_bar(iteration, iterations_total, length = 30, fill = '#'):
     filled_length = int(length * percent / 100)
     loading_bar = fill * filled_length + '-' * (length - filled_length)
 
-    print(f'\rtranslating... [{loading_bar}] ({percent}%)', end='')
+    print(f'\r[{loading_bar}] ({percent}%)', end='')
     sys.stdout.flush()
 
     if iteration == 1:
