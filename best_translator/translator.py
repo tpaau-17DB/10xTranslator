@@ -108,7 +108,7 @@ def translate(text, destination, iterations = 50, errors_limit=10):
         except Exception as e:
             if errors_limit != -1:
                 errors += 1
-            l.log_err("\nFailed to translate due to an error: {e}")
+            l.log_err(f"\nFailed to translate due to an error: {e}")
 
             if errors < errors_limit:
                 continue
