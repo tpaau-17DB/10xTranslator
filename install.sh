@@ -37,8 +37,8 @@ echo -e "\nDependencies met. Installing package...\n"
 pip install . || { echo "Failed to install package. See errors above." ; exit 1; }
 
 echo "Copying files to ${target_path}..."
-sudo cp ${package_name}/${executable} ${target_path}translator || { echo "Failed to copy executables." ; exit 1; }
-sudo cp ${package_name}/${utils} ${target_path} || { echo "Failed to copy executables." ; exit 1; }
+sudo cp ${package_name}/${executable} ${target_path}translator || { echo "Failed to copy ${executable}." ; exit 1; }
+sudo cp ${package_name}/${utils} ${target_path} || { echo "Failed to copy ${utils}." ; exit 1; }
 
 echo "Setting file permissions..."
 sudo chmod 755 ${target_path}translator || { echo "Failed to set executable bit." ; exit 1; }
