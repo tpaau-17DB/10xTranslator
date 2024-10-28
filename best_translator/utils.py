@@ -29,9 +29,6 @@ def print_loading_bar(iteration, iterations_total, length = 30, fill = '#'):
     print(f'\r[{loading_bar}] ({percent}%)', end='')
     sys.stdout.flush()
 
-    if iteration == 1:
-        print()
-
 def load_file_contents(file_path):
     """
     loads file based on specified path and returns its contents

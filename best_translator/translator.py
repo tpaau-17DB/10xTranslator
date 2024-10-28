@@ -8,6 +8,7 @@ from os import error
 import sys
 import random
 import argparse
+import time
 
 import logger as l
 
@@ -45,6 +46,7 @@ def main():
 
     if args.quiet:
         l.toggle_logging(False)
+        global QUIET_MODE
         QUIET_MODE = True
 
     if args.verbosity:
@@ -93,7 +95,7 @@ def translate(text, destination, iterations = 50, errors_limit=10):
     l.log_deb("Starting translation...")
     dst = ""
     i = int(iterations)
-    errors = int(errors_limit)
+    errors = 0
     while i > 0:
         if i == 1:
             dst = destination
@@ -101,23 +103,27 @@ def translate(text, destination, iterations = 50, errors_limit=10):
             dst = random.choice(LANGUAGE_CODES)
 
         if not QUIET_MODE:
-            print_loading_bar(i, int(iterations))
+            print_loading_bar(i - 1, int(iterations))
 
         try:
             text = translate_once(text, dst)
+            if errors_limit != -1 and errors > 0:
+                errors -= 1
         except Exception as e:
             if errors_limit != -1:
                 errors += 1
-            l.log_err(f"\nFailed to translate due to an error: {e}")
-
+            if not QUIET_MODE:
+                print()
+            l.log_err(f"Failed to translate due to an error: {e}")
+            time.sleep(1)
             if errors < errors_limit:
                 continue
-            l.log_err("Too many errors occured, aborting.")
+            l.log_err("Too many errors occured, aborting.", override_prior=True)
             return text
 
         i -= 1
 
-    print(text)
+    print(f"\n{text}")
     return text
 
 if __name__ == '__main__':
