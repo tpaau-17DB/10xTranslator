@@ -13,8 +13,6 @@ If you don't have `deep_translator` installed, run:
 pip install deep_translator
 ```
 
-Make sure this command is executed from the root of the repository, where `setup.py` is located.
-
 The program requires a custom logger package that can be downloaded from: https://github.com/tpaau-17DB/python-logger.
 
 
@@ -30,8 +28,8 @@ For quick install you can run:
 ./install.sh
 ```
 
-This script ensures you have all the dependencies required and installs the package.
-
+This script ensures you have all the dependencies required and installs the package. 
+Make sure this command is executed from the root of the repository, where `setup.py` is located.
 
 </details>
 
@@ -40,9 +38,8 @@ This script ensures you have all the dependencies required and installs the pack
 
 <summary>Manual installation</summary>
 
-
 To manually install the python package you can run `pip install .`
-
+This command needs to be executed from the root of the repository, where `setup.py` is located.
 
 You can also copy the files to `/usr/bin` so translator can be accessed at all times:
 
