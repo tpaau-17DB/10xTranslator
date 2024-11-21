@@ -44,8 +44,7 @@ This command needs to be executed from the root of the repository, where `setup.
 You can also copy the files to `/usr/bin` so translator can be accessed at all times:
 
 ```
-sudo cp best_translator/translator.py /usr/bin/translator
-sudo cp best_translator/utils.py /usr/bin/utils.py
+sudo cp best_translator/translator.py best_translator/utils.py /usr/bin/translator
 ```
 
 Then ensure `/usr/bin/translator` has required permissions:
